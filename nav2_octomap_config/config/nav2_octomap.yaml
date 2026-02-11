@@ -87,6 +87,20 @@ behavior_server:
     wait:
       plugin: "nav2_behaviors/Wait"
 
+lifecycle_manager:
+  ros__parameters:
+    use_sim_time: True
+    autostart: True
+    node_names:
+      - controller_server
+      - planner_server
+      - behavior_server
+      - bt_navigator
+      - waypoint_follower
+      - local_costmap/local_costmap
+      - global_costmap/global_costmap
+
+
 
 local_costmap:
   local_costmap:
@@ -184,3 +198,5 @@ global_costmap:
         cost_scaling_factor: 3.0
 
       always_send_full_costmap: True
+
+
