@@ -29,11 +29,16 @@ def generate_launch_description():
         DeclareLaunchArgument('publish_free_space', default_value='True'),
         DeclareLaunchArgument('min_z', default_value='0.30'),
         DeclareLaunchArgument('max_z', default_value='2.0'),
+	DeclareLaunchArgument('occupancy_min_z', default_value='-1.0'),
+	DeclareLaunchArgument('occupancy_max_z', default_value='2.0'),
+	DeclareLaunchArgument('pointcloud_min_z', default_value='0.40'),
+	DeclareLaunchArgument('pointcloud_max_z', default_value='2.0'),
+
 
         Node(
             package='octomap_server2',
             executable='octomap_server',
-            name='octomap_server',
+            name='octomap_server_filtered',
             output='screen',
             remappings=[
                 ('cloud_in', LaunchConfiguration('input_cloud_topic'))
@@ -59,7 +64,13 @@ def generate_launch_description():
                 'sensor_model/max': LaunchConfiguration('sensor_model/max'),
                 'publish_free_space': LaunchConfiguration('publish_free_space'),
                 'min_z': LaunchConfiguration('min_z'),
-                'max_z': LaunchConfiguration('max_z')
-            }]
+                'max_z': LaunchConfiguration('max_z'),
+        	'occupancy_min_z': LaunchConfiguration('occupancy_min_z'),
+	        'occupancy_max_z': LaunchConfiguration('occupancy_max_z'),
+		'pointcloud_min_z': LaunchConfiguration('pointcloud_min_z'),
+		'pointcloud_max_z': LaunchConfiguration('pointcloud_max_z'),
+
+
+	    }]
         )
     ])

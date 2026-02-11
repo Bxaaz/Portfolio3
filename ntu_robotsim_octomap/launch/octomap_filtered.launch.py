@@ -19,6 +19,7 @@ def generate_launch_description():
             launch_arguments={
 
                 'input_cloud_topic': '/rgbd_camera/points',
+
                 'resolution': '0.05',
 
                 'frame_id': 'odom',
@@ -27,11 +28,19 @@ def generate_launch_description():
                 'filter_ground': 'True',
                 'filter_speckles': 'True',
 
-                'ground_filter/distance': '0.04',
-                'ground_filter/angle': '0.15',
-                'ground_filter/plane_distance': '0.20',
+                'ground_filter/distance': '0.03',
+                'ground_filter/angle': '0.10',
+                'ground_filter/plane_distance': '0.03',
 
-                'sensor_model/max_range': '6.0',
+                'occupancy_min_z': '0.35',
+                'occupancy_max_z': '1.5',
+		'pointcloud_min_z': '0.40',
+		'pointcloud_max_z': '2.0',
+
+
+
+
+                'sensor_model/max_range': '4.0',
 
                 'publish_free_space': 'True',
                 'incremental_2D_projection': 'True'
