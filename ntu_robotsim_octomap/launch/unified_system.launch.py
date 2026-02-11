@@ -54,6 +54,15 @@ def generate_launch_description():
         name='teleop',
         output='screen'
     )
+    map_to_odom_tf = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
+        output='screen'
+    )
+
+
+
 
     return LaunchDescription([
         maze_launch,
@@ -61,6 +70,7 @@ def generate_launch_description():
         odom_tf_launch,
         octomap_launch,
         nav2_launch,
+	map_to_odom_tf,
         rviz_node,
         teleop_node
     ])

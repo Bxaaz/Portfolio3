@@ -32,7 +32,7 @@ def generate_launch_description():
                 'ground_filter/angle': '0.10',
                 'ground_filter/plane_distance': '0.03',
 
-                'occupancy_min_z': '0.35',
+                'occupancy_min_z': '0.05',
                 'occupancy_max_z': '1.5',
 		'pointcloud_min_z': '0.40',
 		'pointcloud_max_z': '2.0',
